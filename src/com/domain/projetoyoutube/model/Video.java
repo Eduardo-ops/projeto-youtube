@@ -4,83 +4,85 @@ import com.domain.projetoyoutube.controller.AcoesVideo;
 
 public class Video implements AcoesVideo {
 
-	private String titulo;
-	private int avaliacao;
-	private int visualizacoes;
-	private int curtidas;
-	private boolean reproduzindo;
+    private String titulo;
+    private int avaliacao;
+    private int visualizacoes;
+    private int curtidas;
+    private boolean reproduzindo;
 
-	public Video(String titulo) {
-		this.titulo = titulo;
-		this.avaliacao = 1;
-		this.visualizacoes = 0;
-		this.curtidas = 0;
-		this.reproduzindo = false;
-	}
+    public Video(String titulo) {
+        this.titulo = titulo;
+        this.avaliacao = 1;
+        this.visualizacoes = 0;
+        this.curtidas = 0;
+        this.reproduzindo = false;
+    }
 
-	public Video() {
+    public Video() {
 
-	}
+    }
 
-	@Override
-	public void play() {
-		this.reproduzindo = true;
-	}
+    @Override
+    public void play() {
+        this.reproduzindo = true;
+    }
 
-	@Override
-	public void pause() {
-		this.reproduzindo = false;
-	}
+    @Override
+    public void pause() {
+        this.reproduzindo = false;
+    }
 
-	@Override
-	public void like() {
-		this.curtidas++;
-	}
+    @Override
+    public void like() {
+        this.curtidas++;
+    }
 
-	@Override
-	public String toString() {
-		return "Video [titulo=" + titulo + ", avaliacao=" + avaliacao + ", visualizacoes=" + visualizacoes
-				+ ", curtidas=" + curtidas + ", reproduzindo=" + reproduzindo + "]";
-	}
+    @Override
+    public String toString() {
+        return "Video [titulo=" + titulo + ", avaliacao=" + avaliacao + ", visualizacoes=" + visualizacoes
+                + ", curtidas=" + curtidas + ", reproduzindo=" + reproduzindo + "]";
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	public int getAvaliacao() {
-		return avaliacao;
-	}
+    public int getAvaliacao() {
+        return avaliacao;
+    }
 
-	public void setAvaliacao(int avaliacao) {
-		this.avaliacao = avaliacao;
-	}
+    public void setAvaliacao(int avaliacao) {
+        int novaAvaliacao;
+        novaAvaliacao = (int) ((this.avaliacao + avaliacao) / this.visualizacoes); // Pegando a média
+        this.avaliacao = novaAvaliacao;
+    }
 
-	public int getVisualizacoes() {
-		return visualizacoes;
-	}
+    public int getVisualizacoes() {
+        return visualizacoes;
+    }
 
-	public void setVisualizacoes(int visualizacoes) {
-		this.visualizacoes = visualizacoes;
-	}
+    public void setVisualizacoes(int visualizacoes) {
+        this.visualizacoes = visualizacoes;
+    }
 
-	public int getCurtidas() {
-		return curtidas;
-	}
+    public int getCurtidas() {
+        return curtidas;
+    }
 
-	public void setCurtidas(int curtidas) {
-		this.curtidas = curtidas;
-	}
+    public void setCurtidas(int curtidas) {
+        this.curtidas = curtidas;
+    }
 
-	public boolean getReproduzindo() {
-		return reproduzindo;
-	}
+    public boolean getReproduzindo() {
+        return reproduzindo;
+    }
 
-	public void setReproduzindo(boolean reproduzindo) {
-		this.reproduzindo = reproduzindo;
-	}
+    public void setReproduzindo(boolean reproduzindo) {
+        this.reproduzindo = reproduzindo;
+    }
 
 }
